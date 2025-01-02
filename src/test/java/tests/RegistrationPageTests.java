@@ -7,9 +7,6 @@ import steps.components.CheckSubmittingFormComponent;
 
 public class RegistrationPageTests extends TestBase{
 
-    String shortPhoneNumber = "892234353";
-    String file = "Cat.jpg";
-
     RegistrationPageSteps registrationPageSteps = new RegistrationPageSteps();
     CheckSubmittingFormComponent checkSubmittingFormComponent = new CheckSubmittingFormComponent();
     TestData testData = new TestData();
@@ -26,7 +23,7 @@ public class RegistrationPageTests extends TestBase{
                 .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
                 .setSubject(testData.subject)
                 .setHobbies(testData.hobbies)
-                .setPicture(file)
+                .setPicture(testData.picture)
                 .setAddress(testData.userAddress)
                 .setState(testData.userState)
                 .setCity(testData.userCity)
@@ -38,7 +35,7 @@ public class RegistrationPageTests extends TestBase{
                 .checkRegistrationResultTable("Date of Birth", testData.BirthDay+" "+testData.BirthMonth+","+testData.BirthYear)
                 .checkRegistrationResultTable("Subjects", testData.subject)
                 .checkRegistrationResultTable("Hobbies", testData.hobbies)
-                .checkRegistrationResultTable("Picture", file)
+                .checkRegistrationResultTable("Picture", testData.picture)
                 .checkRegistrationResultTable("Address", testData.userAddress)
                 .checkRegistrationResultTable("State and City", testData.userState+" "+testData.userCity);
     }
@@ -67,7 +64,7 @@ public class RegistrationPageTests extends TestBase{
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setUserGender(testData.gender)
-                .setUserNumber(shortPhoneNumber)
+                .setUserNumber(testData.shortTelephoneNumber)
                 .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
                 .setSubmit()
                 .checkLineHasRedColor(registrationPageSteps.userNumberInput);

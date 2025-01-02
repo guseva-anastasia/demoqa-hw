@@ -15,12 +15,12 @@ public class TextBoxTest extends TestBase{
                 .setFullName(testData.firstName+" "+testData.lastName)
                 .setUserEmail(testData.userEmail)
                 .setCurrentAddress(testData.userAddress)
-                .setPermanentAddress(testData.userAddress)
+                .setPermanentAddress(testData.userPermanentAddress)
                 .submit();
 
         textBoxSteps.checkResult("Name", testData.firstName+" "+testData.lastName)
                 .checkResult("Email", testData.userEmail)
                 .checkResult("Current Address", testData.userAddress)
-                .checkResult("Permananet Address", testData.userAddress);
+                .checkResult("Permananet Address", testData.userPermanentAddress);
     }
 }
