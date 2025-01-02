@@ -1,24 +1,16 @@
 package tests;
 
 import helpers.TestData;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import steps.TextBoxSteps;
-import steps.components.ConfigurationComponent;
 
-public class TextBoxTest {
+public class TextBoxTest extends TestBase{
 
     TestData testData = new TestData();
     TextBoxSteps textBoxSteps = new TextBoxSteps();
-    static ConfigurationComponent configurationComponent = new ConfigurationComponent();
-
-    @BeforeAll
-    static void beforeAll() {
-        configurationComponent.configurationBrowser();
-    }
 
     @Test
-    void fullTextBoxForm() {
+    void fullTextBoxFormTest() {
         textBoxSteps.openPage()
                 .setFullName(testData.firstName+" "+testData.lastName)
                 .setUserEmail(testData.userEmail)

@@ -1,13 +1,11 @@
 package tests;
 
 import helpers.TestData;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import steps.RegistrationPageSteps;
 import steps.components.CheckSubmittingFormComponent;
-import steps.components.ConfigurationComponent;
 
-public class RegistrationPageTests {
+public class RegistrationPageTests extends TestBase{
 
     String shortPhoneNumber = "892234353";
     String file = "Cat.jpg";
@@ -15,12 +13,6 @@ public class RegistrationPageTests {
     RegistrationPageSteps registrationPageSteps = new RegistrationPageSteps();
     CheckSubmittingFormComponent checkSubmittingFormComponent = new CheckSubmittingFormComponent();
     TestData testData = new TestData();
-    static ConfigurationComponent configurationComponent = new ConfigurationComponent();
-
-    @BeforeAll
-    static void beforeAll() {
-        configurationComponent.configurationBrowser();
-    }
 
     @Test
     void successfulRegistrationTest() {
@@ -52,7 +44,7 @@ public class RegistrationPageTests {
     }
 
     @Test
-    void registrationWithOnlyRequiredFields () {
+    void registrationWithOnlyRequiredFieldsTest () {
         registrationPageSteps.openPage()
                 .removeBanner()
                 .setFirstName(testData.firstName)
@@ -69,7 +61,7 @@ public class RegistrationPageTests {
     }
 
     @Test
-    void registrationWithNotValidPhoneNumber(){
+    void registrationWithNotValidPhoneNumberTest(){
         registrationPageSteps.openPage()
                 .removeBanner()
                 .setFirstName(testData.firstName)
@@ -82,7 +74,7 @@ public class RegistrationPageTests {
     }
 
     @Test
-    void submitWithEmptyForm(){
+    void submitWithEmptyFormTest(){
         registrationPageSteps.openPage()
                 .removeBanner()
                 .setSubmit()
