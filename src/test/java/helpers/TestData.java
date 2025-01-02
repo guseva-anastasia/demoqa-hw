@@ -6,7 +6,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class TestData {
 
@@ -16,8 +15,7 @@ public class TestData {
     public
     String firstName = faker.name().firstName(), // Emory
             lastName = faker.name().lastName(),
-
-    userEmail = faker.internet().emailAddress(),
+            userEmail = faker.internet().emailAddress(),
             gender = faker.options().option("Male", "Female", "Other"),
             telephoneNumber = faker.phoneNumber().subscriberNumber(10),
             shortTelephoneNumber = faker.phoneNumber().subscriberNumber(9),
@@ -45,17 +43,15 @@ public class TestData {
         };
 
     }
-    public long randomTimestamp = ThreadLocalRandom.current().nextLong(
-            new Date(0).getTime(),
-            new Date().getTime());
 
     public TestData() {
+        Date birthDate = faker.date().birthday(18, 70);
         DateFormat dayFormat = new SimpleDateFormat("d", Locale.UK);
-        BirthDay = dayFormat.format(new Date(randomTimestamp));
-        DateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.UK);
-        BirthMonth = monthFormat.format(new Date(randomTimestamp));
+        BirthDay = dayFormat.format(birthDate);
+        DateFormat monthFormat = new SimpleDateFormat("MMMMM", Locale.UK);
+        BirthMonth = monthFormat.format(birthDate);
         DateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.UK);
-        BirthYear =  yearFormat.format(new Date(randomTimestamp));
+        BirthYear =  yearFormat.format(birthDate);
 
     }
 
