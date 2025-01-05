@@ -2,15 +2,14 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.*;
 
 public class TestBase {
 
     @BeforeAll
     static void configurationBrowser() {
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://www.saucedemo.com";
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
     }
 
@@ -19,3 +18,4 @@ public class TestBase {
         Selenide.closeWebDriver();
     }
 }
+
