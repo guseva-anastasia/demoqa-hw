@@ -30,8 +30,9 @@ public class TestBase {
 
     @AfterEach
     public void afterEach() {
-        Selenide.closeWebDriver();
         Attach.addVideo();
+        Selenide.closeWebDriver();
+
     }
 }
 
