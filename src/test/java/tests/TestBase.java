@@ -6,6 +6,8 @@ import org.junit.jupiter.api.*;
 
 public class TestBase {
 
+    public static final String TEXTBOX = "text-box";
+
     @BeforeAll
     static void configurationBrowser() {
         Configuration.browserSize = "1920x1080";

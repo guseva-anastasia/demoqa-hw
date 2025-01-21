@@ -1,6 +1,7 @@
 package tests;
 
 import helpers.TestData;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import steps.RegistrationPageSteps;
 import steps.components.CheckSubmittingFormComponent;
@@ -11,6 +12,7 @@ public class RegistrationPageTests extends TestBase{
     CheckSubmittingFormComponent checkSubmittingFormComponent = new CheckSubmittingFormComponent();
     TestData testData = new TestData();
 
+    @Tag("registration")
     @Test
     void successfulRegistrationTest() {
         registrationPageSteps.openPage()
@@ -40,6 +42,7 @@ public class RegistrationPageTests extends TestBase{
                 .checkRegistrationResultTable("State and City", testData.userState+" "+testData.userCity);
     }
 
+    @Tag("registration")
     @Test
     void registrationWithOnlyRequiredFieldsTest () {
         registrationPageSteps.openPage()
@@ -57,6 +60,7 @@ public class RegistrationPageTests extends TestBase{
 
     }
 
+    @Tag("registration")
     @Test
     void registrationWithNotValidPhoneNumberTest(){
         registrationPageSteps.openPage()
@@ -70,6 +74,7 @@ public class RegistrationPageTests extends TestBase{
                 .checkLineHasRedColor(registrationPageSteps.userNumberInput);
     }
 
+    @Tag("registration")
     @Test
     void submitWithEmptyFormTest(){
         registrationPageSteps.openPage()
