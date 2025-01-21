@@ -22,11 +22,14 @@ allure {
 }
 
 dependencies {
-    testImplementation (
-            "com.codeborne:selenide:7.5.1",
+    testImplementation(
+            "com.codeborne:selenide:7.0.0",
             "org.junit.jupiter:junit-jupiter:5.10.0",
             'org.slf4j:slf4j-simple:2.0.7',
-            'com.github.javafaker:javafaker:1.0.2')
+            'com.github.javafaker:javafaker:1.0.2',
+            'io.qameta.allure:allure-selenide:2.27.0'
+    )
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.22.1'
 }
 
 tasks.withType(JavaCompile) {

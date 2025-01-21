@@ -1,16 +1,19 @@
 package tests;
 
+import helpers.Attach;
 import helpers.TestData;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import steps.RegistrationPageSteps;
 import steps.components.CheckSubmittingFormComponent;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class RegistrationPageTests extends TestBase{
 
     RegistrationPageSteps registrationPageSteps = new RegistrationPageSteps();
     CheckSubmittingFormComponent checkSubmittingFormComponent = new CheckSubmittingFormComponent();
     TestData testData = new TestData();
+
 
     @Tag("registration")
     @Test

@@ -54,7 +54,7 @@ public class TextBoxSteps {
 
     @Step("Нажимаем на кнопку submit")
     public void submit() {
-        submitInput.click();
+        submitInput.pressEnter();
     }
 
     @Step("Проверяем корректность сохранения данных пользователя")
