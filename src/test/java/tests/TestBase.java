@@ -30,6 +30,8 @@ public class TestBase {
 
     @AfterEach
     public void afterEach() {
+        Attach.makeScreenshotOnFailure();
+        Attach.getBrowserLogs();
         Attach.addVideo();
         Selenide.closeWebDriver();
 
