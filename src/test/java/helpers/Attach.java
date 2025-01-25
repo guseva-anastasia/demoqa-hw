@@ -18,8 +18,8 @@ public class Attach {
                 + "' type='video/mp4'></video></body></html>";
     }
 
-    @Attachment("Screenshot on failure")
-    public static byte[] makeScreenshotOnFailure() {
+    @Attachment("Screenshot after test")
+    public static byte[] addScreenshot() {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
