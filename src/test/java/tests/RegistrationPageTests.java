@@ -23,6 +23,7 @@ public class RegistrationPageTests extends TestBase{
                 .setUserEmail(testData.userEmail)
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.telephoneNumber)
+                .removeBanner()
                 .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
                 .setSubject(testData.subject)
                 .setHobbies(testData.hobbies)
