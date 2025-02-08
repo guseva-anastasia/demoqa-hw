@@ -43,35 +43,35 @@ public class RegistrationPageSteps {
 
     @Step("Заполняем имя")
     public RegistrationPageSteps setFirstName (String value) {
-        firstNameInput.setValue(value);
+        firstNameInput.scrollTo().setValue(value);
 
         return this;
     }
 
     @Step("Заполняем фамилию")
     public RegistrationPageSteps setLastName (String value) {
-        lastNameInput.setValue(value);
+        lastNameInput.scrollTo().setValue(value);
 
         return this;
     }
 
     @Step("Заполняем Email")
     public RegistrationPageSteps setUserEmail (String value) {
-        userEmailInput.setValue(value);
+        userEmailInput.scrollTo().setValue(value);
 
         return this;
     }
 
     @Step("Указываем пол")
     public RegistrationPageSteps setUserGender (String value) {
-        genderWrapper.$(byText(value)).click();
+        genderWrapper.scrollTo().$(byText(value)).click();
 
         return this;
     }
 
     @Step("Заполняем номер телефона")
     public RegistrationPageSteps setUserNumber (String value) {
-        userNumberInput.setValue(value);
+        userNumberInput.scrollTo().setValue(value);
 
         return this;
     }
@@ -79,7 +79,7 @@ public class RegistrationPageSteps {
     @Step("Указываем дату рождения")
     public RegistrationPageSteps setDateOfBirth (String day, String month, String year) {
 
-        dateOfBirthInput.click();
+        dateOfBirthInput.scrollTo().click();
         calendarComponent.setDate(day,month,year);
 
         return this;
@@ -88,7 +88,7 @@ public class RegistrationPageSteps {
     @Step("Указываем предметы")
     public RegistrationPageSteps setSubject (String value) {
 
-        subjectInput.setValue(value).pressEnter();
+        subjectInput.scrollTo().setValue(value).pressEnter();
 
         return this;
     }
@@ -111,7 +111,7 @@ public class RegistrationPageSteps {
     @Step("Заполняем текущий адрес")
     public RegistrationPageSteps setAddress (String value) {
 
-        addressInput.setValue(value);
+        addressInput.scrollTo().setValue(value);
 
         return this;
     }
@@ -119,7 +119,7 @@ public class RegistrationPageSteps {
     @Step("Выбираем штат")
     public RegistrationPageSteps setState (String value) {
 
-        stateInput.setValue(value).pressEnter();
+        stateInput.scrollTo().setValue(value).pressEnter();
 
         return this;
     }
@@ -127,7 +127,7 @@ public class RegistrationPageSteps {
     @Step("Выбираем город")
     public RegistrationPageSteps setCity (String value) {
 
-        cityInput.setValue(value).pressEnter();
+        cityInput.scrollTo().setValue(value).pressEnter();
 
         return this;
     }
@@ -135,7 +135,7 @@ public class RegistrationPageSteps {
     @Step("Нажимаем на кнопку submit")
     public RegistrationPageSteps setSubmit () {
 
-        submitInput.scrollIntoView(false).click();
+        submitInput.scrollTo().click();
 
         return this;
     }
