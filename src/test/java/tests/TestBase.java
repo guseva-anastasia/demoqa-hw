@@ -16,6 +16,9 @@ public class TestBase {
 
     @BeforeAll
     static void configurationBrowser() {
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserVersion = System.getProperty("browserVersion");
+        Configuration.browserSize = System.getProperty("browserSize","1920x1080");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = "https://user1:1234@" + System.getProperty("remoteHost") + "/wd/hub";
@@ -26,18 +29,18 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
     public void afterEach() {
         Attach.addScreenshot();
-        Attach.getBrowserLogs();
         Attach.addVideo();
+        if (!System.getProperty("browser").equalsIgnoreCase("firefox")) {
+            Attach.pageSource();
+            Attach.getBrowserLogs();
+        }
         Selenide.closeWebDriver();
 
     }

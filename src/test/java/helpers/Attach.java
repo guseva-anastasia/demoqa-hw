@@ -7,6 +7,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
 import static org.openqa.selenium.logging.LogType.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -38,6 +40,11 @@ public class Attach {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Attachment(value = "Page source", type = "text/plain")
+    public static byte[] pageSource() {
+        return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
     public static String getSessionId(){
