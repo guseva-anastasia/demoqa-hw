@@ -30,6 +30,7 @@ public class RegistrationPageTests extends TestBase{
                 .setAddress(testData.userAddress)
                 .setState(testData.userState)
                 .setCity(testData.userCity)
+                .removeBanner()
                 .setSubmit();
         checkSubmittingFormComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
                 .checkRegistrationResultTable("Student Email", testData.userEmail)
@@ -53,6 +54,7 @@ public class RegistrationPageTests extends TestBase{
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.telephoneNumber)
                 .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
+                .removeBanner()
                 .setSubmit();
         checkSubmittingFormComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
                 .checkRegistrationResultTable("Gender", testData.gender)
@@ -71,6 +73,7 @@ public class RegistrationPageTests extends TestBase{
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.shortTelephoneNumber)
                 .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
+                .removeBanner()
                 .setSubmit()
                 .checkLineHasRedColor(registrationPageSteps.userNumberInput);
     }
