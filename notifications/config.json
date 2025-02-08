@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "demoqa-hw",
+    "environment": "prod",
+    "comment": "report",
+    "reportLink": "",
+    "language": "ru",
+    "messenger": "telegram",
+    "allureFolder": "build/reports/allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "7883035743:AAG2VwIs0rFvwaAb9HKAhEBDEMHJFKC03Hw",
+    "chat": "-4612815598",
+    "replyTo": ""
+  }
+}
