@@ -135,7 +135,7 @@ public class RegistrationPageSteps {
     @Step("Нажимаем на кнопку submit")
     public RegistrationPageSteps setSubmit () {
 
-        submitInput.click();
+        submitInput.scrollIntoView(false).click();
 
         return this;
     }
