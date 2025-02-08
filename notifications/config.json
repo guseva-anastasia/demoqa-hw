@@ -3,10 +3,10 @@
     "project": "demoqa-hw",
     "environment": "prod",
     "comment": "report",
-    "reportLink": "",
+    "reportLink": "https://jenkins.autotests.cloud/job/001_demoqa/36/",
     "language": "ru",
     "messenger": "telegram",
-    "allureFolder": "build/reports/allure-report/",
+    "allureFolder": "allure-report",
     "enableChart": true
   },
   "telegram": {
