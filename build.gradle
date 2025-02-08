@@ -27,6 +27,7 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:5.10.0",
             'org.slf4j:slf4j-simple:2.0.7',
             'com.github.javafaker:javafaker:1.0.2',
+            "org.aeonbits.owner:owner:1.0.12",
             'io.qameta.allure:allure-selenide:2.27.0'
     )
     runtimeOnly 'org.aspectj:aspectjweaver:1.9.22.1'
@@ -37,8 +38,8 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test){
+    systemProperties(System.getProperties())
     useJUnitPlatform()
-
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
@@ -49,7 +50,13 @@ tasks.withType(Test){
 
 task registration_tests(type:Test){
     useJUnitPlatform(){
-        includeTags("registration")
+        includeTags("registration_tests")
+    }
+}
+
+task text_box_tests(type:Test){
+    useJUnitPlatform(){
+        includeTags("text_box_tests")
     }
 }
 

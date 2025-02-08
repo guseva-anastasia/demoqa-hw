@@ -1,12 +1,10 @@
 package tests;
 
-import helpers.Attach;
 import helpers.TestData;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import steps.RegistrationPageSteps;
 import steps.components.CheckSubmittingFormComponent;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class RegistrationPageTests extends TestBase{
 
@@ -15,7 +13,7 @@ public class RegistrationPageTests extends TestBase{
     TestData testData = new TestData();
 
 
-    @Tag("registration")
+    @Tag("registration_tests")
     @Test
     void successfulRegistrationTest() {
         registrationPageSteps.openPage()
@@ -45,7 +43,7 @@ public class RegistrationPageTests extends TestBase{
                 .checkRegistrationResultTable("State and City", testData.userState+" "+testData.userCity);
     }
 
-    @Tag("registration")
+    @Tag("registration_tests")
     @Test
     void registrationWithOnlyRequiredFieldsTest () {
         registrationPageSteps.openPage()
@@ -63,7 +61,7 @@ public class RegistrationPageTests extends TestBase{
 
     }
 
-    @Tag("registration")
+    @Tag("registration_tests")
     @Test
     void registrationWithNotValidPhoneNumberTest(){
         registrationPageSteps.openPage()
@@ -77,7 +75,7 @@ public class RegistrationPageTests extends TestBase{
                 .checkLineHasRedColor(registrationPageSteps.userNumberInput);
     }
 
-    @Tag("registration")
+    @Tag("registration_tests")
     @Test
     void submitWithEmptyFormTest(){
         registrationPageSteps.openPage()
