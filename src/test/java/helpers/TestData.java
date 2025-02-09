@@ -23,7 +23,7 @@ public class TestData {
             shortTelephoneNumber = faker.phoneNumber().subscriberNumber(9),
             subject = faker.options().option("Hindi", "English", "Maths", "Physics", "Chemistry", "Biology", "Computer Science", "Commerce", "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics"),
             hobbies = faker.options().option("Sports", "Reading", "Music"),
-            picture = faker.options().option("123/Cat.jpg", "123/Dog.png", "123/Bird.svg"),
+            picture = faker.options().option("image/Cat.jpg", "image/Dog.png", "image/Bird.svg"),
             userAddress = faker.address().fullAddress(),
             userPermanentAddress = faker.address().fullAddress(),
             userState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
