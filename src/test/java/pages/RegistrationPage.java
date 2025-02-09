@@ -1,16 +1,15 @@
-package steps;
+package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import steps.components.CalendarComponent;
+import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static tests.TestBase.TEXTBOX;
 
-public class RegistrationPageSteps {
+public class RegistrationPage {
 
     public SelenideElement firstNameInput = $("#firstName"),
     lastNameInput = $("#lastName"),
@@ -29,55 +28,55 @@ public class RegistrationPageSteps {
     CalendarComponent calendarComponent = new CalendarComponent();
 
     @Step("Открываем страницу Practice Form")
-    public RegistrationPageSteps openPage() {
+    public RegistrationPage openPage() {
     open("/automation-practice-form");
           return this;
     }
 
     @Step("Удаляем баннеры")
-    public RegistrationPageSteps removeBanner() {
+    public RegistrationPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
     @Step("Заполняем имя")
-    public RegistrationPageSteps setFirstName (String value) {
+    public RegistrationPage setFirstName (String value) {
         firstNameInput.scrollTo().setValue(value);
 
         return this;
     }
 
     @Step("Заполняем фамилию")
-    public RegistrationPageSteps setLastName (String value) {
+    public RegistrationPage setLastName (String value) {
         lastNameInput.scrollTo().setValue(value);
 
         return this;
     }
 
     @Step("Заполняем Email")
-    public RegistrationPageSteps setUserEmail (String value) {
+    public RegistrationPage setUserEmail (String value) {
         userEmailInput.scrollTo().setValue(value);
 
         return this;
     }
 
     @Step("Указываем пол")
-    public RegistrationPageSteps setUserGender (String value) {
+    public RegistrationPage setUserGender (String value) {
         genderWrapper.scrollTo().$(byText(value)).click();
 
         return this;
     }
 
     @Step("Заполняем номер телефона")
-    public RegistrationPageSteps setUserNumber (String value) {
+    public RegistrationPage setUserNumber (String value) {
         userNumberInput.scrollTo().setValue(value);
 
         return this;
     }
 
     @Step("Указываем дату рождения")
-    public RegistrationPageSteps setDateOfBirth (String day, String month, String year) {
+    public RegistrationPage setDateOfBirth (String day, String month, String year) {
 
         dateOfBirthInput.scrollTo().click();
         calendarComponent.setDate(day,month,year);
@@ -86,14 +85,14 @@ public class RegistrationPageSteps {
     }
 
     @Step("Указываем предметы")
-    public RegistrationPageSteps setSubject (String value) {
+    public RegistrationPage setSubject (String value) {
 
         subjectInput.scrollTo().setValue(value).pressEnter();
 
         return this;
     }
     @Step("Указываем хобби")
-    public RegistrationPageSteps setHobbies (String value) {
+    public RegistrationPage setHobbies (String value) {
 
         hobbiesInput.$(byText(value)).click();
 
@@ -101,7 +100,7 @@ public class RegistrationPageSteps {
     }
 
     @Step("Загружаем изображение")
-    public RegistrationPageSteps setPicture (String value) {
+    public RegistrationPage setPicture (String value) {
 
         uploadPictureInput.uploadFromClasspath(value);
 
@@ -109,7 +108,7 @@ public class RegistrationPageSteps {
     }
 
     @Step("Заполняем текущий адрес")
-    public RegistrationPageSteps setAddress (String value) {
+    public RegistrationPage setAddress (String value) {
 
         addressInput.scrollTo().setValue(value);
 
@@ -117,7 +116,7 @@ public class RegistrationPageSteps {
     }
 
     @Step("Выбираем штат")
-    public RegistrationPageSteps setState (String value) {
+    public RegistrationPage setState (String value) {
 
         stateInput.scrollTo().setValue(value).pressEnter();
 
@@ -125,7 +124,7 @@ public class RegistrationPageSteps {
     }
 
     @Step("Выбираем город")
-    public RegistrationPageSteps setCity (String value) {
+    public RegistrationPage setCity (String value) {
 
         cityInput.scrollTo().setValue(value).pressEnter();
 
@@ -133,7 +132,7 @@ public class RegistrationPageSteps {
     }
 
     @Step("Нажимаем на кнопку submit")
-    public RegistrationPageSteps setSubmit () {
+    public RegistrationPage setSubmit () {
 
         submitInput.scrollTo().click();
 
@@ -141,7 +140,7 @@ public class RegistrationPageSteps {
     }
 
     @Step("Проверяем выделение красным обязательных полей")
-    public RegistrationPageSteps checkLineHasRedColor (SelenideElement value) {
+    public RegistrationPage checkLineHasRedColor (SelenideElement value) {
 
         value.shouldHave(Condition.cssValue("border-color","rgb(220, 53, 69)"));
 

@@ -1,53 +1,53 @@
-package steps;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import steps.components.CheckSubmittingFormComponent;
+import pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static tests.TestBase.*;
 
-public class TextBoxSteps {
+public class TextBoxPage {
     private final SelenideElement fullNameInput = $("#userName"),
             userEmailInput = $("#userEmail"),
             currentAddressInput = $("#currentAddress"),
             permanentAddressInput = $("#permanentAddress"),
             submitInput = $("#submit");
 
-    CheckSubmittingFormComponent checkSubmittingFormComponent = new CheckSubmittingFormComponent();
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
 
     @Step("Открываем страницу "+TEXTBOX)
-    public TextBoxSteps openPage() {
-        open("/"+TEXTBOX);
+    public TextBoxPage openPage() {
+        open(TEXTBOX);
         return this;
     }
 
     @Step("Удаляем баннеры")
-    public TextBoxSteps removeBanner() {
+    public TextBoxPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
     @Step("Заполняем Full Name")
-    public TextBoxSteps setFullName(String fullName) {
+    public TextBoxPage setFullName(String fullName) {
         fullNameInput.setValue(fullName);
         return this;
     }
     @Step("Заполняем Email")
-    public TextBoxSteps setUserEmail(String email) {
+    public TextBoxPage setUserEmail(String email) {
         userEmailInput.setValue(email);
         return this;
     }
     @Step("Заполняем Current Address")
-    public TextBoxSteps setCurrentAddress(String address) {
+    public TextBoxPage setCurrentAddress(String address) {
         currentAddressInput.setValue(address);
         return this;
     }
 
     @Step("Заполняем Permanent Address")
-    public TextBoxSteps setPermanentAddress(String address) {
+    public TextBoxPage setPermanentAddress(String address) {
         permanentAddressInput.setValue(address);
         return this;
     }
@@ -58,8 +58,8 @@ public class TextBoxSteps {
     }
 
     @Step("Проверяем корректность сохранения данных пользователя")
-    public TextBoxSteps checkResult(String key, String value) {
-        checkSubmittingFormComponent.outputText(key, value);
+    public TextBoxPage checkResult(String key, String value) {
+        resultTableComponent.outputText(key, value);
         return this;
     }
 

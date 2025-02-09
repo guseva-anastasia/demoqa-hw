@@ -3,20 +3,20 @@ package tests;
 import helpers.TestData;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import steps.RegistrationPageSteps;
-import steps.components.CheckSubmittingFormComponent;
+import pages.RegistrationPage;
+import pages.components.ResultTableComponent;
 
 public class RegistrationPageTests extends TestBase{
 
-    RegistrationPageSteps registrationPageSteps = new RegistrationPageSteps();
-    CheckSubmittingFormComponent checkSubmittingFormComponent = new CheckSubmittingFormComponent();
+    RegistrationPage registrationPage = new RegistrationPage();
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
     TestData testData = new TestData();
 
 
     @Tag("registration_tests")
     @Test
     void successfulRegistrationTest() {
-        registrationPageSteps.openPage()
+        registrationPage.openPage()
                 .removeBanner()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
@@ -24,7 +24,7 @@ public class RegistrationPageTests extends TestBase{
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.telephoneNumber)
                 .removeBanner()
-                .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
+                .setDateOfBirth(testData.birthDay, testData.birthMonth, testData.birthYear)
                 .setSubject(testData.subject)
                 .setHobbies(testData.hobbies)
                 .setPicture(testData.picture)
@@ -33,11 +33,11 @@ public class RegistrationPageTests extends TestBase{
                 .setCity(testData.userCity)
                 .removeBanner()
                 .setSubmit();
-        checkSubmittingFormComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
+        resultTableComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
                 .checkRegistrationResultTable("Student Email", testData.userEmail)
                 .checkRegistrationResultTable("Gender", testData.gender)
                 .checkRegistrationResultTable("Mobile", testData.telephoneNumber)
-                .checkRegistrationResultTable("Date of Birth", testData.BirthDay+" "+testData.BirthMonth+","+testData.BirthYear)
+                .checkRegistrationResultTable("Date of Birth", testData.birthDay+" "+testData.birthMonth+","+testData.birthYear)
                 .checkRegistrationResultTable("Subjects", testData.subject)
                 .checkRegistrationResultTable("Hobbies", testData.hobbies)
                 .checkRegistrationResultTable("Picture", testData.picture)
@@ -48,46 +48,46 @@ public class RegistrationPageTests extends TestBase{
     @Tag("registration_tests")
     @Test
     void registrationWithOnlyRequiredFieldsTest () {
-        registrationPageSteps.openPage()
+        registrationPage.openPage()
                 .removeBanner()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.telephoneNumber)
-                .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
+                .setDateOfBirth(testData.birthDay, testData.birthMonth, testData.birthYear)
                 .removeBanner()
                 .setSubmit();
-        checkSubmittingFormComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
+        resultTableComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
                 .checkRegistrationResultTable("Gender", testData.gender)
                 .checkRegistrationResultTable("Mobile", testData.telephoneNumber)
-                .checkRegistrationResultTable("Date of Birth", testData.BirthDay+" "+testData.BirthMonth+","+testData.BirthYear);
+                .checkRegistrationResultTable("Date of Birth", testData.birthDay+" "+testData.birthMonth+","+testData.birthYear);
 
     }
 
     @Tag("registration_tests")
     @Test
     void registrationWithNotValidPhoneNumberTest(){
-        registrationPageSteps.openPage()
+        registrationPage.openPage()
                 .removeBanner()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.shortTelephoneNumber)
-                .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
+                .setDateOfBirth(testData.birthDay, testData.birthMonth, testData.birthYear)
                 .removeBanner()
                 .setSubmit()
-                .checkLineHasRedColor(registrationPageSteps.userNumberInput);
+                .checkLineHasRedColor(registrationPage.userNumberInput);
     }
 
     @Tag("registration_tests")
     @Test
     void submitWithEmptyFormTest(){
-        registrationPageSteps.openPage()
+        registrationPage.openPage()
                 .removeBanner()
                 .setSubmit()
-                .checkLineHasRedColor(registrationPageSteps.firstNameInput)
-                .checkLineHasRedColor(registrationPageSteps.lastNameInput)
-                .checkLineHasRedColor(registrationPageSteps.userNumberInput);
+                .checkLineHasRedColor(registrationPage.firstNameInput)
+                .checkLineHasRedColor(registrationPage.lastNameInput)
+                .checkLineHasRedColor(registrationPage.userNumberInput);
     }
 
 }

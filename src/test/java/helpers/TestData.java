@@ -23,14 +23,14 @@ public class TestData {
             shortTelephoneNumber = faker.phoneNumber().subscriberNumber(9),
             subject = faker.options().option("Hindi", "English", "Maths", "Physics", "Chemistry", "Biology", "Computer Science", "Commerce", "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics"),
             hobbies = faker.options().option("Sports", "Reading", "Music"),
-            picture = faker.options().option("Cat.jpg", "Dog.png","Bird.svg"),
+            picture = faker.options().option("123/Cat.jpg", "123/Dog.png", "123/Bird.svg"),
             userAddress = faker.address().fullAddress(),
             userPermanentAddress = faker.address().fullAddress(),
             userState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
             userCity = getRandomCity(userState),
-            BirthDay,
-            BirthMonth,
-            BirthYear;
+            birthDay,
+            birthMonth,
+            birthYear;
 
 
 
@@ -51,11 +51,11 @@ public class TestData {
 
     public TestData() {
         DateFormat dayFormat = new SimpleDateFormat("d", Locale.UK);
-        BirthDay = dayFormat.format(new Date(randomTimestamp));
+        birthDay = dayFormat.format(new Date(randomTimestamp));
         DateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.UK);
-        BirthMonth = monthFormat.format(new Date(randomTimestamp));
+        birthMonth = monthFormat.format(new Date(randomTimestamp));
         DateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.UK);
-        BirthYear =  yearFormat.format(new Date(randomTimestamp));
+        birthYear =  yearFormat.format(new Date(randomTimestamp));
 
     }
 
