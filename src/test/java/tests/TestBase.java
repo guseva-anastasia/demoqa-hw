@@ -19,12 +19,14 @@ public class TestBase {
 
     @BeforeAll
     static void configurationBrowser() {
+        String login = config.login();
+        String password = config.password();
         Configuration.browser = System.getProperty("browser");
         Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.browserSize = System.getProperty("browserSize","1920x1080");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://"+ config.login()+":"+ config.password() + System.getProperty("remoteHost") + "/wd/hub";
+        Configuration.remote = "https://"+ login + ":" + password + System.getProperty("remoteHost") + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map .<String, Object>of(
