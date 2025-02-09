@@ -24,7 +24,7 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize","1920x1080");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://"+ config.login() + ":" + config.password() + System.getProperty("remoteHost") + "/wd/hub";
+        Configuration.remote = "https://"+ config.login() + ":" + config.password() + "@" + System.getProperty("remoteHost") + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map .<String, Object>of(
