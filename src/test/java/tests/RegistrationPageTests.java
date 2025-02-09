@@ -31,7 +31,6 @@ public class RegistrationPageTests extends TestBase{
                 .setAddress(testData.userAddress)
                 .setState(testData.userState)
                 .setCity(testData.userCity)
-                .removeBanner()
                 .setSubmit();
         resultTableComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
                 .checkRegistrationResultTable("Student Email", testData.userEmail)
@@ -55,7 +54,6 @@ public class RegistrationPageTests extends TestBase{
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.telephoneNumber)
                 .setDateOfBirth(testData.birthDay, testData.birthMonth, testData.birthYear)
-                .removeBanner()
                 .setSubmit();
         resultTableComponent.checkRegistrationResultTable("Student Name",testData.firstName+" "+testData.lastName)
                 .checkRegistrationResultTable("Gender", testData.gender)
@@ -74,9 +72,8 @@ public class RegistrationPageTests extends TestBase{
                 .setUserGender(testData.gender)
                 .setUserNumber(testData.shortTelephoneNumber)
                 .setDateOfBirth(testData.birthDay, testData.birthMonth, testData.birthYear)
-                .removeBanner()
                 .setSubmit()
-                .checkLineHasRedColor(registrationPage.userNumberInput);
+                .checkMissingResultTable();
     }
 
     @Tag("registration_tests")
@@ -85,9 +82,7 @@ public class RegistrationPageTests extends TestBase{
         registrationPage.openPage()
                 .removeBanner()
                 .setSubmit()
-                .checkLineHasRedColor(registrationPage.firstNameInput)
-                .checkLineHasRedColor(registrationPage.lastNameInput)
-                .checkLineHasRedColor(registrationPage.userNumberInput);
+                .checkMissingResultTable();
     }
 
 }

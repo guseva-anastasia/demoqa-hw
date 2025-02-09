@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -23,7 +24,9 @@ public class RegistrationPage {
     addressInput = $("#currentAddress"),
     stateInput = $("#react-select-3-input"),
     cityInput = $("#react-select-4-input"),
-    submitInput = $("#submit");
+    submitInput = $("#submit"),
+    modalContent = $(".modal-content");
+
 
     CalendarComponent calendarComponent = new CalendarComponent();
 
@@ -139,10 +142,10 @@ public class RegistrationPage {
         return this;
     }
 
-    @Step("Проверяем выделение красным обязательных полей")
-    public RegistrationPage checkLineHasRedColor (SelenideElement value) {
+    @Step("Проверяем отсутствие модального окна с результатом")
+    public RegistrationPage checkMissingResultTable () {
 
-        value.shouldHave(Condition.cssValue("border-color","rgb(220, 53, 69)"));
+        modalContent.shouldNot(appear);
 
         return this;
     }
