@@ -97,7 +97,7 @@ public class RegistrationPage {
     @Step("Указываем хобби")
     public RegistrationPage setHobbies (String value) {
 
-        hobbiesInput.$(byText(value)).click();
+        hobbiesInput.scrollTo().$(byText(value)).click();
 
         return this;
     }
@@ -105,7 +105,7 @@ public class RegistrationPage {
     @Step("Загружаем изображение")
     public RegistrationPage setPicture (String value) {
 
-        uploadPictureInput.uploadFromClasspath(value);
+        uploadPictureInput.scrollTo().uploadFromClasspath(value);
 
         return this;
     }
