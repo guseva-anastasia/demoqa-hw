@@ -15,7 +15,6 @@ public class ResultTableComponent {
     @Step("Проверяем корректность сохранения данных пользователя")
     public ResultTableComponent checkRegistrationResultTable (String key, String value) {
         tableResponsive.$(byText(key)).closest("tr").shouldHave(text(value));
-        System.out.println(key);
 
         return this;
     }
